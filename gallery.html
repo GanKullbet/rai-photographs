@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Rai.photograph_</title>
+<link rel="icon" type="image/jpg" href="https://c8.alamy.com/comp/2A682HN/slr-camera-photography-logo-icon-vector-design-2A682HN.jpg">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#0f0f0f;
+color:white;
+padding:40px;
+animation:fade 1s;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
+
+h1{
+text-align:center;
+font-size:60px;
+margin-bottom:15px;
+}
+
+p{
+text-align:center;
+color:#aaa;
+margin-bottom:50px;
+}
+
+/* Masonry Gallery */
+
+.gallery{
+column-count:3;
+column-gap:15px;
+}
+
+.gallery img{
+width:100%;
+margin-bottom:15px;
+border-radius:20px;
+cursor:pointer;
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.03);
+filter:brightness(1.1);
+}
+
+/* Lightbox */
+
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.95);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:20px;
+animation:zoom .3s;
+}
+
+@keyframes zoom{
+from{
+transform:scale(.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+@media(max-width:900px){
+
+.gallery{
+column-count:2;
+}
+
+h1{
+font-size:45px;
+}
+
+}
+
+@media(max-width:600px){
+
+.gallery{
+column-count:1;
+}
+
+h1{
+font-size:35px;
+}
+
+}
+
+</style>
+</head>
+<body>
+<h1>Our Gallery</h1>
+<p>Capture memories and beautiful moments.</p>
+
+<div class="gallery">
+
+<img src="alam.jpg">
+<img src="alam 2.jpg">
+<img src="alam 5.jpg">
+<img src="aku dan bunga.jpg">
+<img src="HANS.jpg">
+<img src="kaca.jpg">
+<img src="alam 4.jpg">
+
+</div>
+<div class="lightbox">
+<img src="">
+</div>
+
+<script>
+
+let images = document.querySelectorAll(".gallery img");
+let lightbox = document.querySelector(".lightbox");
+let preview = document.querySelector(".lightbox img");
+
+images.forEach(img=>{
+
+img.onclick = ()=>{
+
+lightbox.style.display = "flex";
+preview.src = img.src;
+
+}
+
+});
+
+lightbox.onclick = ()=>{
+
+lightbox.style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
